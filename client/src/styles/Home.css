@@ -6,7 +6,6 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
-
 }
 
 .box h1 {
@@ -30,9 +29,10 @@
 }
 
 .box form input[type="text"] {
+    box-sizing: border-box;
     width: 500px;
-    background-color: #E0DDCF;
     border: none;
+    background-color: #E0DDCF;
     font-family: 'Lexend', sans-serif;
     color: #353535;
 }
@@ -43,6 +43,11 @@
     border: none;
     cursor: pointer;
     font-family: 'Lexend', sans-serif;
+    width: 140px;
+}
+
+.invalid {
+    box-shadow: 0 0 10px red !important;
 }
 
 @media screen and (max-width: 800px) {
