@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+body {
+  margin: 0 auto;
+  display: flex;
+  place-items: center;
+  min-height: 100vh;
+  background-color: #E0DDCF;
+  font-family: 'Lexend', sans-serif;
+  min-width: 500px;
+}
+
+#root {
+  margin: 0 auto;
+}
