@@ -1,0 +1,14 @@
+{
+  "name": "CaminhoCurto",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start":"node server/index.js"
+  },
+  "author": "luan004",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}
