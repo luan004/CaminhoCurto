@@ -6,7 +6,12 @@ const Redirect = () => {
     const [valid, setValid] = useState(false)
     const [url, setUrl] = useState('')
 
-    fetch('http://' + location.hostname + ':3001/api/link/' + code)
+    fetch('http://' + location.hostname + ':3001/api/link/' + code, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
     .then(response => response.json())
     .then(data => {
         if (data.status == 'success') {

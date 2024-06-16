@@ -30,4 +30,19 @@ router.post("/link", (req, res) => {
     }
 });
 
+router.get("/link/:code", (req, res) => {
+    const code = req.params.code;
+    
+    if (code === "KH2435J") {
+        return res.status(200).json({
+            status: "success",
+            url: "https://www.google.com"
+        });
+    } else {
+        return res.status(404).json({
+            status: "error"
+        });
+    }
+});
+
 module.exports = router;
