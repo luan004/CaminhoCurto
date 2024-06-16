@@ -1,30 +1,45 @@
-import { useState } from 'react'
-import '../styles/Home.css'
+import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faScissors, faCopy } from '@fortawesome/free-solid-svg-icons';
+import '../styles/Home.css';
 
 const Home = () => {
-
-    const [url, setUrl] = useState('')
-    const [shorted, setShorted] = useState(false)
+    const [url, setUrl] = useState('');
+    const [shorted, setShorted] = useState(false);
 
     const handle = (e: any) => {
-        e.preventDefault()
+        e.preventDefault();
         if (!shorted) {
-            console.log(url)
-            setShorted(true)
-            setUrl(window.location.origin + "/adsfsadfsda")
+            fetch('http://localhost:3001/api/link', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    url: url
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status == 'success') {
+                    setShorted(true);
+                    setUrl(location.origin + '/' + data.code); 
+                }
+            })
+            .catch(error => console.error(error));
         } else {
-            navigator.clipboard.writeText(url)
-            setUrl('')
-            setShorted(false)
+            navigator.clipboard.writeText(url);
+            setUrl('');
+            setShorted(false);
         }
-    }
+    };
 
     return (
         <div className='box'>
             <h1>CaminhoCurto</h1>
             <form onSubmit={handle}>
                 <input 
-                    className=''
+                    className={shorted ? 'disabled' : ''}
                     type="text"
                     name="url"
                     placeholder="URL"
@@ -32,13 +47,12 @@ const Home = () => {
                     onChange={e => setUrl(e.target.value)}
                     disabled={shorted}
                 />
-                <input
-                    type="submit"
-                    value={shorted ? 'Copiar' : 'Encurtar'}
-                />
+                <button type="submit">
+                    {shorted ? <><FontAwesomeIcon icon={faCopy} /> Copiar</> : <><FontAwesomeIcon icon={faScissors} /> Encurtar</>}
+                </button>
             </form>
         </div>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;

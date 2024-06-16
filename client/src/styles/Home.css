@@ -20,12 +20,12 @@
     gap: 10px;
 }
 
-.box form input {
+.box form input, .box form button{
     font-size: 20px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 .box form input[type="text"] {
@@ -37,17 +37,23 @@
     color: #353535;
 }
 
-.box form input[type="submit"] {
+.box form button {
     background-color: #3C6E71;
     color: white;
     border: none;
     cursor: pointer;
     font-family: 'Lexend', sans-serif;
-    width: 140px;
+    width: 150px;
 }
 
 .invalid {
     box-shadow: 0 0 10px red !important;
+}
+
+.disabled {
+    background-color: #3C6E71!important;
+    color: white!important;
+    cursor:text!important;
 }
 
 @media screen and (max-width: 800px) {
