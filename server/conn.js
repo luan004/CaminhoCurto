@@ -28,20 +28,26 @@ const saveLink = async (code, url) => {
     return query;
 }
 
-const getCode = async (url) => {
-    const [query] = await conn.query('SELECT code FROM links WHERE url = ?', [url]);
+const getLink = async (url) => {
+    const [query] = await conn.query('SELECT * FROM links WHERE url = ?', [url]);
     return query;
 }
 
-const getUrl = async (code) => {
-    const url = await conn.query('SELECT url FROM links WHERE code = ?', [code]);
-    return url[0][0].url;
+const getCode = async (code) => {
+    const [query] = await conn.query('SELECT * FROM links WHERE code = ?', [code]);
+    return query;
 }
 
 const addLink = async (url) => {
-    return getCode(url).then((query) => {
-        console.log(query);
+    return getLink(url).then((response) => {
+        if (response.length > 0) {
+            return response[0].code;
+        } else {
+            const code = genCode();
+            saveLink(code, url);
+            return code;
+        }
     });
 }
 
-module.exports = { addLink, getUrl };
+module.exports = { addLink, getCode };

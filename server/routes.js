@@ -1,5 +1,5 @@
 const express = require("express");
-const { addLink, getUrl } = require("./conn");
+const { addLink, getCode } = require("./conn");
 
 const router = express.Router();
 
@@ -33,11 +33,17 @@ router.post("/link", (req, res) => {
 router.get("/link/:code", (req, res) => {
     const code = req.params.code;
 
-    getUrl(code).then((url) => {
-        return res.status(200).json({
-            status: "success",
-            url: url
-        });
+    getCode(code).then((url) => {
+        if (url.length > 0) {
+            return res.status(200).json({
+                status: "success",
+                url: url[0].url
+            });
+        } else {
+            return res.status(404).json({
+                status: "error"
+            });
+        }
     }).catch(() => {
         return res.status(404).json({
             status: "error"
