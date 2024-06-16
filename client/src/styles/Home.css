@@ -1,16 +1,30 @@
 .box {
-    background-color: #353535;
+    background-color: rgba(53, 53, 53, 0.5);
+    backdrop-filter: blur(3px);
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.9);
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
+    border: 1px solid #838383;
 }
 
 .box h1 {
     margin: 0px;
     font-size: 2rem;
+    text-align: center;
+    color: #E0DDCF;
+}
+
+.box p a {
+    color: #e9d57f;
+    text-decoration: none;
+}
+
+.box p {
+    margin: 0px;
+    font-size: 14px;
     text-align: center;
     color: #E0DDCF;
 }

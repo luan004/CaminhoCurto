@@ -5,9 +5,12 @@ body {
   display: flex;
   place-items: center;
   min-height: 100vh;
-  background-color: #E0DDCF;
   font-family: 'Lexend', sans-serif;
   min-width: 500px;
+
+  background-color: #e0ddcf;
+  background-image: url("https://www.transparenttextures.com/patterns/cartographer.png");
+  background-size: 700px;
 }
 
 #root {

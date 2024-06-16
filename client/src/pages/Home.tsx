@@ -41,7 +41,10 @@ const Home = () => {
 
     return (
         <div className='box'>
-            <h1>CaminhoCurto</h1>
+            <div>
+                <h1>CaminhoCurto</h1>
+                <p>Feito por <a href="https://github.com/luan004" target='_blank'>luan004</a></p>
+            </div>
             <form onSubmit={handle}>
                 <input 
                     className={(shorted ? 'disabled' : '') + (error ? 'invalid' : '')}
