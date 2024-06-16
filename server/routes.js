@@ -6,7 +6,6 @@ const router = express.Router();
 router.post("/link", (req, res) => {
     const data = req.body;
 
-    // check if the url is bigger than 2048 characters
     if (data.url.length > 2048) {
         return res.status(400).json({
             status: "error",

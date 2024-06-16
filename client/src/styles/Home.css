@@ -1,5 +1,5 @@
 .box {
-    background-color: rgba(53, 53, 53, 0.5);
+    background-color: #413e3554;
     backdrop-filter: blur(3px);
     padding: 40px;
     border-radius: 20px;
@@ -14,7 +14,7 @@
     margin: 0px;
     font-size: 2rem;
     text-align: center;
-    color: #E0DDCF;
+    color: #ddd6b7;
 }
 
 .box p a {
@@ -46,13 +46,13 @@
     box-sizing: border-box;
     width: 500px;
     border: none;
-    background-color: #E0DDCF;
+    background-color: rgb(206, 200, 175);
     font-family: 'Lexend', sans-serif;
     color: #353535;
 }
 
 .box form button {
-    background-color: #3C6E71;
+    background-color: #b1a880;
     color: white;
     border: none;
     cursor: pointer;
@@ -80,7 +80,7 @@
 }
 
 .disabled {
-    background-color: #3C6E71!important;
+    background-color: #b1a880!important;
     color: white!important;
     cursor:text!important;
 }

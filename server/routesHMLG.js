@@ -7,6 +7,13 @@ const router = express.Router();
 router.post("/link", (req, res) => {
     const data = req.body;
 
+    if (data.url.length > 2048) {
+        return res.status(400).json({
+            status: "error",
+            message: "A URL é muito longa :/ (máximo de 2048 caracteres)"
+        });
+    }
+
     function isUrl(str) {
         // check if a string is a valid URL
         const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
@@ -25,7 +32,8 @@ router.post("/link", (req, res) => {
         });
     } else {
         return res.status(400).json({
-            status: "error"
+            status: "error",
+            message: "A URL é inválida :/"
         });
     }
 });
