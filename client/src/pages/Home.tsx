@@ -7,6 +7,7 @@ const Home = () => {
     const [url, setUrl] = useState('');
     const [shorted, setShorted] = useState(false);
     const [error, setError] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('');
 
     const handle = (e: any) => {
         e.preventDefault();
@@ -26,9 +27,10 @@ const Home = () => {
                     setShorted(true);
                     setUrl(location.origin + '/' + data.code); 
                     setError(false);
+                    setErrorMsg('');
                 } else {
-                    console.error('error');
                     setError(true);
+                    setErrorMsg(data.message);
                 }
             })
             .catch(error => console.error(error));
@@ -46,15 +48,18 @@ const Home = () => {
                 <p>Feito por <a href="https://github.com/luan004" target='_blank'>luan004</a></p>
             </div>
             <form onSubmit={handle}>
-                <input 
-                    className={(shorted ? 'disabled' : '') + (error ? 'invalid' : '')}
-                    type="text"
-                    name="url"
-                    placeholder="URL"
-                    value={url}
-                    onChange={e => setUrl(e.target.value)}
-                    disabled={shorted}
-                />
+                <div>
+                    <input 
+                        className={(shorted ? 'disabled' : '') + (error ? 'invalid' : '')}
+                        type="text"
+                        name="url"
+                        placeholder="URL"
+                        value={url}
+                        onChange={e => setUrl(e.target.value)}
+                        disabled={shorted}
+                    />
+                    <p>{errorMsg}</p>
+                </div>
                 <button type="submit">
                     {shorted ? <><FontAwesomeIcon icon={faCopy} /> Copiar</> : <><FontAwesomeIcon icon={faScissors} /> Encurtar</>}
                 </button>

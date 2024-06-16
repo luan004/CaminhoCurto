@@ -60,6 +60,21 @@
     width: 150px;
 }
 
+.box form div {
+    position: relative;
+}
+
+.box form div p {
+    font-size: 12px;
+    color: rgb(255, 118, 118);
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+
+    /* unselectable */
+    user-select: none;
+}
+
 .invalid {
     box-shadow: 0 0 10px red !important;
 }

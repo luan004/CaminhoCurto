@@ -9,7 +9,7 @@ body {
   min-width: 500px;
 
   background-color: #e0ddcf;
-  background-image: url("https://www.transparenttextures.com/patterns/cartographer.png");
+  background-image: url('../assets/cartographer.png');
   background-size: 700px;
 }
 
