@@ -3,7 +3,7 @@
     backdrop-filter: blur(3px);
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 10px 10px rgba(0, 0, 0, 0.9);
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.7);
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -38,7 +38,7 @@
     font-size: 20px;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.7);
     transition: 0.3s;
 }
 
@@ -60,23 +60,34 @@
     width: 150px;
 }
 
+.box form button:hover {
+    filter:brightness(120%);
+}
+
+.box form button:active {
+    transform: translateY(2px);
+}
+
 .box form div {
     position: relative;
 }
 
 .box form div p {
-    font-size: 12px;
-    color: rgb(255, 118, 118);
+    font-size: 14px;
+    color: #e64c4c;
     position: absolute;
     bottom: 5px;
     right: 5px;
-
-    /* unselectable */
     user-select: none;
+    width: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: 0.3s;
+    text-align: right;
 }
 
-.invalid {
-    box-shadow: 0 0 10px red !important;
+.error {
+    width:200px!important;
 }
 
 .disabled {

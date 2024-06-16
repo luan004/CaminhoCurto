@@ -6,7 +6,6 @@ import '../styles/Home.css';
 const Home = () => {
     const [url, setUrl] = useState('');
     const [shorted, setShorted] = useState(false);
-    const [error, setError] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
 
     const handle = (e: any) => {
@@ -26,10 +25,8 @@ const Home = () => {
                 if (data.status == 'success') {
                     setShorted(true);
                     setUrl(location.origin + '/' + data.code); 
-                    setError(false);
                     setErrorMsg('');
                 } else {
-                    setError(true);
                     setErrorMsg(data.message);
                 }
             })
@@ -50,7 +47,7 @@ const Home = () => {
             <form onSubmit={handle}>
                 <div>
                     <input 
-                        className={(shorted ? 'disabled' : '') + (error ? 'invalid' : '')}
+                        className={shorted ? 'disabled' : ''}
                         type="text"
                         name="url"
                         placeholder="URL"
@@ -58,7 +55,7 @@ const Home = () => {
                         onChange={e => setUrl(e.target.value)}
                         disabled={shorted}
                     />
-                    <p>{errorMsg}</p>
+                    <p className={errorMsg == '' ? '' : 'error'}>{errorMsg}</p>
                 </div>
                 <button type="submit">
                     {shorted ? <><FontAwesomeIcon icon={faCopy} /> Copiar</> : <><FontAwesomeIcon icon={faScissors} /> Encurtar</>}
