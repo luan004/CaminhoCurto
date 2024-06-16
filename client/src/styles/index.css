@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
 body {
-  margin: 0 auto;
-  display: flex;
-  place-items: center;
-  min-height: 100vh;
-  font-family: 'Lexend', sans-serif;
-  min-width: 500px;
 
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+
+  font-family: 'Lexend', sans-serif;
   background-color: #e0ddcf;
   background-image: url('../assets/cartographer.png');
   background-size: 700px;
