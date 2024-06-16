@@ -58,7 +58,16 @@
 
 @media screen and (max-width: 800px) {
     .box form input[type="text"] {
-        width: 100%;
+        width: 250px;
+    }
+
+    .box form button {
+        width: 110px;
+    }
+
+    .box form button, .box form input {
+        padding: 10px;
+        font-size: 15px;
     }
 
     .box form input {

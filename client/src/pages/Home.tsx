@@ -6,11 +6,12 @@ import '../styles/Home.css';
 const Home = () => {
     const [url, setUrl] = useState('');
     const [shorted, setShorted] = useState(false);
+    const [error, setError] = useState(false);
 
     const handle = (e: any) => {
         e.preventDefault();
         if (!shorted) {
-            fetch('http://localhost:3001/api/link', {
+            fetch('http://' + location.hostname + ':3001/api/link', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -24,6 +25,10 @@ const Home = () => {
                 if (data.status == 'success') {
                     setShorted(true);
                     setUrl(location.origin + '/' + data.code); 
+                    setError(false);
+                } else {
+                    console.error('error');
+                    setError(true);
                 }
             })
             .catch(error => console.error(error));
@@ -32,14 +37,14 @@ const Home = () => {
             setUrl('');
             setShorted(false);
         }
-    };
+    }
 
     return (
         <div className='box'>
             <h1>CaminhoCurto</h1>
             <form onSubmit={handle}>
                 <input 
-                    className={shorted ? 'disabled' : ''}
+                    className={(shorted ? 'disabled' : '') + (error ? 'invalid' : '')}
                     type="text"
                     name="url"
                     placeholder="URL"
